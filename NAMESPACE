@@ -1,0 +1,10 @@
+useDynLib(DoD, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom(stats,dist)
+importFrom(stats,ecdf)
+export(DoD.boot.samp)
+export(DoD.stat)
+export(DoD.test)
+importFrom(Rdpack,reprompt)
+
+
