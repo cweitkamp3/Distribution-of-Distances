@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // determine_lower_tri_indices
 arma::uvec determine_lower_tri_indices(const arma::uvec& input, int noc_dist_mat);
 RcppExport SEXP _DoD_determine_lower_tri_indices(SEXP inputSEXP, SEXP noc_dist_matSEXP) {
