@@ -3,8 +3,8 @@ Type: Package
 Title: Comparison of Distributions of Distances
 Version: 1.0
 Date: 2021-03-04
-Author: Anonymous
-Maintainer: Anonymous <Anonymous@Anonymous.com>
+Author: Christoph Weitkamp
+Maintainer: Christoph Weitkamp <cweitka@mathematik.uni-goettingen.de>
 Description: Implementation of the Distribution-of-Distances-Test (DoD-Test) proposed in the paper "Distribution of Distances based Object Matching: Asymptotic Inference" (under revision).
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.5), Rdpack (>= 0.7), stats (>= 3.6)
