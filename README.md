@@ -1,7 +1,7 @@
 # Distribution-of-Distances
 
 This packages implements the bootstrapped Distribution of Distances (DoD)-test proposed in [Weitkamp et al. (2022)](https://www.tandfonline.com/doi/abs/10.1080/01621459.2022.2127360).
-It is the basis for all simulation presented in this paper.
+It is the basis for all simulation presented in said paper.
 
 ## Installation
 
