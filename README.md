@@ -41,4 +41,4 @@ Note that the DoD-test is not symmetric in its input arguments due to the Bootst
 However, the results usually remain comparable.
 
 ## References
-C. Weitkamp, K. Proksch, C. Tameling and A. Munk. "Distribution of Distances based Object Matching: Asymptotic Inference". Journal of the American Statistical Association 1-14, 2022.
+C. Weitkamp, K. Proksch, C. Tameling and A. Munk. "Distribution of Distances based Object Matching: Asymptotic Inference". Journal of the American Statistical Association, 1-14, 2022.
