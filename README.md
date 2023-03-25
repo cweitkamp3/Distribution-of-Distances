@@ -33,7 +33,7 @@ A Bootstrap sample can be calculated like this:
 ```R
 boot.samp = DoD.boot.samp(square, beta = 0.01, p =2)
 ```
-And the bootstrapped DoD-test between two samples ca be performed like this:
+And the bootstrapped DoD-test between two independent samples can be performed like this:
 ```R
 DoD.test(square, disc)
 ```
