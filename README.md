@@ -14,24 +14,24 @@ install_github("cweitkamp3/Distribution-of-Distances")
 ## Usage
 The usage of this package is quite intuitive and illustrated in the following. First of all, the DoD-statistic of a given sample can be calculated as follows: 
 ```R
-n = 100
+n <- 100
 
-square = data.frame("x"=numeric(n),"y"=numeric(n))
-square$x = runif(n,0,1)
-square$y = runif(n,0,1)
+square <- data.frame("x" = numeric(n), "y" = numeric(n))
+square$x <- runif(n,0,1)
+square$y <- runif(n,0,1)
 
-disc = data.frame("x"=numeric(n),"y"=numeric(n))
-radius = 0.5
-r = radius*sqrt(runif(n,0,1))
-theta = runif(n,0,1)*2*pi
-disc$x= r*cos(theta)
-disc$y= r*sin(theta)
+disc <- data.frame("x" = numeric(n), "y" = numeric(n))
+radius <- 0.5
+r <- radius*sqrt(runif(n, 0, 1))
+theta <- runif(n, 0, 1)*2*pi
+disc$x <- r*cos(theta)
+disc$y <- r*sin(theta)
 
 DoD.stat(square, disc)
 ```
 A Bootstrap sample can be calculated like this:
 ```R
-boot.samp = DoD.boot.samp(square, beta = 0.01, p =2)
+boot.samp = DoD.boot.samp(square, beta = 0.01, p = 2)
 ```
 And the bootstrapped DoD-test between two independent samples can be performed like this:
 ```R

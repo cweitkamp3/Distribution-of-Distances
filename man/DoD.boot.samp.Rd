@@ -49,11 +49,11 @@ If the input is a quadratic numeric matrix (and \code{force.coordinates}==F), it
 and the interpoint distances are calculated with \code{dist} and the method specified.
 }
 \examples{
-n= 100
+n <- 100
 
-square = data.frame("x"=numeric(n),"y"=numeric(n))
-square$x = runif(n,0,1)
-square$y = runif(n,0,1)
+square <- data.frame("x" = numeric(n),"y" = numeric(n))
+square$x <- runif(n, 0, 1)
+square$y <- runif(n, 0, 1)
 
 
 DoD.boot.samp(square)

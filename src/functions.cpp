@@ -10,7 +10,7 @@ using namespace Rcpp;
 arma::uvec determine_lower_tri_indices(const arma::uvec& input, int noc_dist_mat){
   size_t boot_m = input.size();
   arma::uvec result(boot_m*(boot_m-1)/2);
-  int counter =0;
+  int counter = 0;
   for(int i = 0; i < boot_m; i++){
     for(int j = i+1; j<boot_m; j++){
       result[counter]= input[i]*noc_dist_mat+input[j];
@@ -24,7 +24,7 @@ arma::uvec determine_lower_tri_indices(const arma::uvec& input, int noc_dist_mat
 
 // L_2 distance between two empirical quantile functions
 // [[Rcpp::export]]
-double trimmed_quantile_diff(const arma::vec sorted_distx,const arma::vec sorted_disty, double beta, double p){
+double trimmed_quantile_diff(const arma::vec sorted_distx, const arma::vec sorted_disty, double beta, double p){
   if(beta >=0.5){
     throw std::invalid_argument( "Error: Beta has to be chosen in [0,0.5)");
   }
@@ -41,7 +41,7 @@ double trimmed_quantile_diff(const arma::vec sorted_distx,const arma::vec sorted
   //std::cout << start_index_u<<std::endl;
   //std::cout << end_index_u<<std::endl;
 
-  if((start_index_u+1)== end_index_u){
+  if((start_index_u+1) == end_index_u){
       throw std::invalid_argument("Beta has been chosen too large in comparison to the sample size.");
     }
     int start_index_v = floor(beta*m);
@@ -51,7 +51,7 @@ double trimmed_quantile_diff(const arma::vec sorted_distx,const arma::vec sorted
     //std::cout << start_index_v<<std::endl;
     //std::cout << end_index_v<<std::endl;
 
-    if((start_index_v+1)== end_index_v){
+    if((start_index_v+1) == end_index_v){
       throw std::invalid_argument("Beta has been chosen too large in comparison to the sample size.");
     }
     int i = start_index_u;
@@ -95,11 +95,11 @@ double trimmed_quantile_diff(const arma::vec sorted_distx,const arma::vec sorted
         if (j == end_index_v){
           break;
         }
-        w_i =w_i- w_j;
-        if(j <end_index_v-1){
+        w_i = w_i- w_j;
+        if(j < end_index_v-1){
           w_j = 1/(double)m;
         } else {
-          w_j=  (1-beta)-(end_index_v-1)/(double)m;
+          w_j =  (1-beta)-(end_index_v-1)/(double)m;
           }
         }
       }
@@ -112,17 +112,17 @@ arma::vec Bootstrap(int number, const double beta, const arma::mat& dist_sample,
   arma::vec result(number);
   int n = dist_sample.n_rows;
   //std::cout << "0.5"<<std::endl;
-  for (int i =0; i<number; i++){
+  for (int i = 0; i<number; i++){
     R_CheckUserInterrupt();
     arma::uvec sequence = arma::linspace<arma::uvec>(0, n-1, n);
     arma::uvec sampled_numbers=Rcpp::RcppArmadillo::sample(sequence, m, true);
 
-    arma::uvec indices= determine_lower_tri_indices(arma::sort(sampled_numbers),n);
+    arma::uvec indices= determine_lower_tri_indices(arma::sort(sampled_numbers), n);
 
     arma::vec distbootstrapped = dist_sample.elem(indices);
     //std::cout << distbootstrapped <<std::endl;
 
-    result[i] = ((double)m)*trimmed_quantile_diff(arma::sort(distbootstrapped),sorteddist,beta,p);
+    result[i] = ((double)m)*trimmed_quantile_diff(arma::sort(distbootstrapped), sorteddist, beta, p);
   }
   return(result);
 }

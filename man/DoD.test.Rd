@@ -57,18 +57,18 @@ The limit distribution under the null hypothesis, which is required for testing,
 is approximated by a resampling scheme (see Section 3 of \insertCite{DoD2021;textual}{DoD}) based on the input \code{input.asym}.
 }
 \examples{
-n= 100
+n <- 100
 
-square = data.frame("x"=numeric(n),"y"=numeric(n))
-square$x = runif(n,0,1)
-square$y = runif(n,0,1)
+square <- data.frame("x" = numeric(n),"y" = numeric(n))
+square$x <- runif(n,0,1)
+square$y <- runif(n,0,1)
 
-disc = data.frame("x"=numeric(n),"y"=numeric(n))
-radius = 0.5
-r = radius*sqrt(runif(n,0,1))
-theta = runif(n,0,1)*2*pi
-disc$x= r*cos(theta)
-disc$y= r*sin(theta)
+disc <- data.frame("x" = numeric(n),"y" = numeric(n))
+radius <- 0.5
+r <- radius*sqrt(runif(n, 0, 1))
+theta <- runif(n, 0, 1)*2*pi
+disc$x <- r*cos(theta)
+disc$y <- r*sin(theta)
 
 DoD.test(square, disc)
 }
